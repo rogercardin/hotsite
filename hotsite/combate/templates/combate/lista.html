@@ -1,0 +1,40 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+		<title>Combate</title>
+		<meta charset="utf-8">
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+                    rel="stylesheet" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+                    crossorigin="anonymous">
+</head>
+<body>
+                <div class="starter-template">
+                <h1 align='center' >Lista dos posts</h1>
+                <main class='container'>
+                <img alt="combate1" src="{% static "img/combate.jpg"%}" class="absolute-center preview-image" style="max-width: 750px;
+                max-height: 3648px; width: 519px; height: 513px; margin:0px
+                auto;"<br/><br/>
+                <img alt="combate2" src="{% static "img/combate2.jpg"%}" class="absolute-center preview-image" style="max-width: 750px; max-height: 3648px; width: 519px; height: 513px;
+                margin: 0px auto;"><br/>
+                <img alt="combate3" src="{% static "img/combate3.jpg"%}" class="absolute-center preview-image" style="max-width: 750px; max-height: 3648px; width: 519px; height: 513px;
+                margin: 0px auto;"><br/>
+                <img alt="combate4" src="{% static "img/combate4.jpg"%}" class="absolute-center preview-image" style="max-width: 750px; max-height: 3648px; width: 519px; height: 513px;
+                margin: 0px auto;">
+                
+    		
+		{% for post in lista_post %}
+                    <article>
+                    <div class="starter-template">
+                    
+                        <h2>{{post.title}}</h2>
+                        {{post.body}}
+                        <a href="{% url 'atualizar' post.id %}" class="btn
+                        btn-info">Atualizar</a>
+                        <a href="{% url 'deletar' post.id %}" class="btn
+                        btn-danger">Deletar</a>
+                        
+                    </article>
+                {% endfor %}
+</body>
+</html>		
